@@ -1,0 +1,45 @@
+/* Publication au format « post Facebook » (même rendu pour l'admin et pour les clients) */
+.post-card{--pc-bg:#141414;--pc-text:#f1f1f1;--pc-sub:#a0a0a0;--pc-line:#2c2c2c;--pc-link:#E22134;--pc-hover:rgba(255,255,255,.07);
+  background:var(--pc-bg);color:var(--pc-text);border-radius:10px;overflow:hidden;margin:0 0 16px;
+  font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;border:1px solid var(--pc-line);box-shadow:0 1px 3px rgba(0,0,0,.4)}
+/* variante claire (facultative) : <PostCard light /> */
+.post-card.light{--pc-bg:#fff;--pc-text:#050505;--pc-sub:#65676b;--pc-line:#ced0d4;--pc-hover:#f0f2f5}
+.post-card-head{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+.post-card-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
+.post-card-who{flex:1;min-width:0;line-height:1.25}
+.post-card-name{display:block;font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.post-card-meta{display:block;font-size:13px;color:var(--pc-sub)}
+.post-card-menu{flex:none;color:var(--pc-sub)}
+.post-card-text{padding:4px 14px 10px;font-size:15px;line-height:1.35;white-space:pre-line;word-break:break-word}
+.post-card-text .post-card-title{font-weight:700;display:block;margin-bottom:2px}
+.post-card-more{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--pc-text);cursor:pointer}
+.post-card-media{display:block;width:100%;height:auto;max-height:80vh;object-fit:cover;background:#000}
+.post-card-extra{padding:10px 14px;border-top:1px solid var(--pc-line);font-size:14px}
+.post-card-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-top:1px solid var(--pc-line)}
+.post-card-barlink{background:none;border:0;padding:0;color:var(--pc-link);font-weight:600;font-size:15px;cursor:pointer;text-align:left}
+.post-card-cta{background:var(--pc-link);color:#fff;border:0;border-radius:6px;padding:9px 16px;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+.post-card-cta:disabled{opacity:.5;cursor:default}
+.post-card-cta.secondary{background:#2c2c2c;color:#f1f1f1}
+.post-card-counts{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-top:1px solid var(--pc-line);font-size:15px;color:var(--pc-sub)}
+.post-card-react{display:flex;align-items:center;gap:6px;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+.post-card-icons{display:inline-flex}
+.post-card-icon{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;border:2px solid var(--pc-bg)}
+.post-card-icon+.post-card-icon{margin-left:-6px}
+.post-card-icon.fire{background:#f7633b}.post-card-icon.like{background:#E22134}.post-card-icon.love{background:#f33e58}
+.post-card-react.on{color:#f7633b;font-weight:600}
+.post-card-comments{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+.post-card-comments:hover{text-decoration:underline}
+.post-card-hidden{display:inline-block;margin:0 14px 8px;padding:3px 8px;border-radius:6px;background:#fff3cd;color:#664d03;font-size:12px}
+
+/* Barre Réagir / Commenter (celle des stories) dans la carte */
+.post-card .story-engage{--pc-red:#E22134;color:var(--pc-text)}
+.post-card .vp-summary{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-top:1px solid var(--pc-line);font-size:15px;color:var(--pc-sub);min-height:22px}
+.post-card .vp-summary-reacts{display:inline-flex;align-items:center;gap:5px}
+.post-card .vp-summary-reacts b{margin-left:4px;font-weight:600}
+.post-card .vp-summary-comments{cursor:pointer}.post-card .vp-summary-comments:hover{text-decoration:underline}
+.post-card .vp-actions{display:flex;border-top:1px solid var(--pc-line);padding:4px 8px}
+.post-card .vp-action{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:none;border:0;border-radius:6px;padding:9px 6px;color:var(--pc-sub);font:inherit;font-weight:600;font-size:15px;cursor:pointer}
+.post-card .vp-action:hover{background:var(--pc-hover)}
+.post-card .vp-action.active{color:var(--pc-red)}
+.post-card .comments-section-enhanced{margin:10px 12px 14px;min-height:0}
+.post-card .reactions-panel{margin:0 12px 12px}

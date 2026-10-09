@@ -1,0 +1,129 @@
+/* src/Utilisateur/UserHomePoster.css
+   Style "affiche de presse ancienne" pour la section "Histoire de l'artiste" */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700;900&family=Oswald:wght@500;700&display=swap');
+
+.panel-section.poster-presse {
+  --paper: #e79aa8;
+  --ink: #130c0c;
+  display: block;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.22), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(120,20,40,.28), transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 2px;
+  padding: 18px 14px 16px;
+  box-shadow: inset 0 0 60px rgba(90,10,30,.35), 0 8px 24px rgba(0,0,0,.6);
+  backdrop-filter: none;
+  overflow: hidden;
+  text-align: center;
+}
+
+.poster-presse * { box-sizing: border-box; min-width: 0; overflow-wrap: anywhere; }
+
+/* Gros titre */
+.poster-presse .poster-title {
+  margin: 0 0 6px;
+  font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: .95;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+}
+.poster-presse .poster-title .t1 { display: block; font-size: clamp(54px, 17vw, 120px); }
+.poster-presse .poster-title .t2 { display: block; font-size: clamp(22px, 7vw, 46px); letter-spacing: 3px; }
+
+/* Ligne directeur + badges */
+.poster-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; margin: 10px 0 12px;
+}
+.poster-badge {
+  flex: 0 0 auto; border: 2px solid var(--ink); padding: 3px 8px;
+  font-family: 'Anton', Impact, sans-serif; line-height: 1;
+  display: flex; flex-direction: column; align-items: center;
+}
+.poster-badge b { font-size: clamp(20px, 6vw, 30px); font-weight: 400; }
+.poster-badge small { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
+
+.poster-director { flex: 1; display: flex; flex-direction: column; align-items: center; line-height: 1.05; }
+.poster-director small { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
+.poster-director strong {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+  font-size: clamp(26px, 8vw, 42px); letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* Bloc central : colonnes de texte + gravure */
+.poster-mid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px 8px; align-items: start;
+}
+.poster-figure {
+  grid-column: 1 / -1; order: -1; margin: 0;
+  border: 3px solid var(--ink); background: #f2e6e0; padding: 3px;
+}
+.poster-figure img {
+  display: block; width: 100%; height: auto; max-height: 420px; object-fit: cover;
+  filter: grayscale(1) contrast(1.15); mix-blend-mode: multiply;
+}
+.poster-side {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 10px;
+  line-height: 1.15; text-transform: uppercase; letter-spacing: .5px;
+}
+.poster-side b {
+  font-family: 'Anton', Impact, sans-serif; font-weight: 400;
+  font-size: clamp(18px, 5.5vw, 30px); letter-spacing: 1px; line-height: 1; margin: 2px 0;
+}
+
+/* Titre d'article */
+.poster-headline {
+  margin: 14px 0 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400;
+  font-size: clamp(34px, 11vw, 70px); line-height: 1; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--ink);
+}
+.poster-byline {
+  margin: 2px 0 10px; font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+  font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+}
+.poster-story {
+  margin: 0; text-align: justify; hyphens: auto;
+  font-family: 'Playfair Display', Georgia, serif; font-size: 14px; line-height: 1.5;
+  color: var(--ink); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+  padding: 10px 0;
+}
+.poster-story::first-letter {
+  float: left; font-family: 'Anton', Impact, sans-serif; font-size: 48px; line-height: .85;
+  padding: 3px 6px 0 0;
+}
+
+/* Collaborateurs */
+.poster-collab { margin: 12px 0 0; font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+.poster-collab h4 { margin: 0 0 4px; font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.poster-collab p {
+  margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+  font-size: 15px; letter-spacing: .5px;
+}
+
+/* Pied d'affiche */
+.poster-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin-top: 14px; border-top: 2px solid var(--ink); padding-top: 10px;
+}
+.poster-num { font-family: 'Anton', Impact, sans-serif; font-size: clamp(44px, 14vw, 80px); line-height: .9; }
+.poster-bottom .poster-end {
+  flex: 1; font-family: 'Anton', Impact, sans-serif; font-size: clamp(18px, 6vw, 30px);
+  letter-spacing: 3px; text-transform: uppercase; line-height: 1.1;
+}
+.poster-end small { display: block; font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; }
+
+/* Tablette / bureau : 3 colonnes comme sur l'affiche */
+@media (min-width: 640px) {
+  .panel-section.poster-presse { padding: 26px 28px 22px; }
+  .poster-mid { grid-template-columns: 1fr 1.6fr 1fr; gap: 16px; align-items: stretch; }
+  .poster-figure { grid-column: auto; order: 0; }
+  .poster-side { font-size: 12px; justify-content: center; }
+  .poster-story { column-count: 2; column-gap: 24px; font-size: 15px; }
+}

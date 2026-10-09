@@ -1,0 +1,115 @@
+/* src/Admin/ProfileSettingsPanel.css */
+
+/* Overlay de fond */
+.profile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Panneau principal simplifié */
+.profile-panel-simple {
+  background: #0a0a0a;
+  border: 2px solid #ff0000;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.profile-content-simple {
+  width: 100%;
+}
+
+/* Titre */
+.profile-content-simple h3 {
+  color: #ff0000;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.3rem;
+}
+
+/* Groupe de formulaire */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Champs texte */
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: #ff0000;
+}
+
+/* Upload photo */
+.photo-upload {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.photo-upload img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ff0000;
+  object-fit: cover;
+}
+
+/* Boutons */
+.save-btn {
+  background: #ff0000;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.save-btn:hover {
+  background: #cc0000;
+}
+
+/* Bouton Annuler (différent) */
+.save-btn.cancel-btn {
+  background: #333;
+  margin-left: 10px;
+}
+
+.save-btn.cancel-btn:hover {
+  background: #555;
+}

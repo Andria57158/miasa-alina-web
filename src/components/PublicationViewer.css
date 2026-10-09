@@ -1,0 +1,8 @@
+/* Barre d'achat de la publication (thème : sombre + rouge) */
+.pv-img{display:block;width:100%;max-width:100%;max-height:75vh;object-fit:contain;margin:0 auto}
+.pv-buy{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-top:1px solid #2c2c2c;flex-wrap:wrap}
+.pv-info{flex:1;min-width:150px;font-size:14px}
+.pv-tier{display:flex;justify-content:space-between;gap:10px;padding:2px 0;color:#d0d0d0}
+.pv-tier strong{color:#fff}
+.pv-cta{background:#E22134;color:#fff;border:0;border-radius:8px;padding:11px 22px;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.pv-cta:disabled{opacity:.5;cursor:default}

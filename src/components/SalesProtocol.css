@@ -1,0 +1,39 @@
+.sp-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;background:rgba(255,255,255,.08)}
+.sp-card{background:rgba(255,255,255,.05);padding:12px;border-radius:10px;margin-bottom:10px;position:relative}
+.sp-row{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.sp-muted{color:#aaa;font-size:13px}
+.sp-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.sp-stamp{position:absolute;right:12px;top:10px;transform:rotate(-10deg);border:3px solid #00C851;color:#00C851;font-weight:800;padding:2px 10px;border-radius:6px;letter-spacing:1px;opacity:.9}
+.sp-field{display:flex;flex-direction:column;gap:4px;margin-top:10px;font-size:14px}
+.sp-field input{width:100%;box-sizing:border-box}
+.sp-err{color:#ff7043;font-size:13px;margin-top:8px}
+.sp-qty{display:flex;align-items:center;gap:8px}
+.sp-qty button{width:28px;height:28px;border-radius:50%;border:0;cursor:pointer}
+.ticket{border-radius:16px;padding:16px;margin-bottom:12px;text-align:center;max-width:320px}
+.ticket.qr-only{background:#fff;padding:12px}
+.ticket .t-label{font-size:28px;font-weight:800;letter-spacing:2px}
+.ticket .t-event{font-size:13px;opacity:.9}
+.ticket .t-photo{width:84px;height:84px;border-radius:50%;object-fit:cover;margin:10px auto;display:block;border:3px solid rgba(255,255,255,.7)}
+.ticket .t-name{font-size:18px;font-weight:700;margin-bottom:10px}
+.ticket .t-qr{background:#fff;padding:8px;border-radius:8px;display:inline-block;line-height:0}
+.ticket .t-used{margin-top:8px;font-weight:700}
+
+/* ===== Facture complète (InvoiceView) — thème du site : fond sombre, texte clair, accent rouge ===== */
+.inv{position:relative;background:rgba(255,255,255,.05);color:inherit;border:1px solid rgba(255,255,255,.08);border-left:4px solid #E22134;border-radius:10px;padding:16px;margin-bottom:12px}
+.inv-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.inv-title{font-size:22px;font-weight:800}
+.inv-no{font-size:14px;color:#E22134;font-weight:700}
+.inv-qr{text-align:center;line-height:1.2}
+.inv-qr>svg,.inv-qr>div{background:#fff;padding:6px;border-radius:8px;box-sizing:content-box}
+.inv-qr small{display:block;font-size:11px;color:#aaa;margin-top:4px}
+.inv-meta{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:12px 0;font-size:14px}
+.inv-meta dt{color:#aaa}.inv-meta dd{margin:0;word-break:break-word}
+.inv-scroll{overflow-x:auto}
+.inv-table{width:100%;border-collapse:collapse;font-size:14px}
+.inv-table th{text-align:left;border-bottom:2px solid #E22134;padding:6px 4px;font-size:13px;color:#aaa}
+.inv-table td{padding:7px 4px;border-bottom:1px solid rgba(255,255,255,.1);vertical-align:middle}
+.inv-table .r{text-align:right;white-space:nowrap}
+.inv-sub{font-size:12px;color:#aaa}
+.inv-del{background:none;border:0;color:#E22134;cursor:pointer;font-size:15px}
+.inv-total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:18px}
+.inv-total strong{color:#E22134}

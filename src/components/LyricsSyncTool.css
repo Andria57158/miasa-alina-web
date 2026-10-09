@@ -1,0 +1,36 @@
+/* src/components/LyricsSyncTool.css */
+.lst-overlay { position: fixed; inset: 0; z-index: 2147483000; background: rgba(0, 0, 0, .78); display: flex; align-items: center; justify-content: center; padding: 12px; }
+.lst-box { width: min(640px, 100%); max-height: 94vh; display: flex; flex-direction: column; gap: 10px; background: #15151a; color: #eee; border: 1px solid #333; border-radius: 14px; padding: 16px; overflow: hidden; font-family: inherit; }
+.lst-head { display: flex; align-items: center; justify-content: space-between; }
+.lst-head h3 { margin: 0; font-size: 18px; }
+.lst-x { background: none; border: 0; color: #aaa; font-size: 26px; line-height: 1; cursor: pointer; }
+.lst-help { margin: 0; font-size: 13px; color: #aaa; line-height: 1.45; }
+.lst-player { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.lst-ctl { background: #26262e; color: #eee; border: 1px solid #3a3a45; border-radius: 8px; padding: 8px 12px; font-size: 13px; cursor: pointer; }
+.lst-ctl:hover:not(:disabled) { background: #33333d; }
+.lst-ctl:disabled { opacity: .45; cursor: default; }
+.lst-play { flex: 1; font-weight: 700; }
+.lst-main { background: #c92a2a; border-color: #c92a2a; font-weight: 700; }
+.lst-main:hover:not(:disabled) { background: #e03131; }
+.lst-rate { background: #26262e; color: #eee; border: 1px solid #3a3a45; border-radius: 8px; padding: 8px; }
+.lst-seek { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #aaa; }
+.lst-seek input { flex: 1; accent-color: #ff4d4d; }
+.lst-next { background: #1d1d25; border: 1px solid #2c2c36; border-radius: 10px; padding: 10px 12px; text-align: center; min-height: 58px; }
+.lst-next small { color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+.lst-next-text { font-size: 18px; font-weight: 700; margin-top: 4px; }
+.lst-ok { color: #51cf66; }
+.lst-tap { background: #ff4d4d; color: #fff; border: 0; border-radius: 12px; padding: 16px; font-size: 18px; font-weight: 800; cursor: pointer; letter-spacing: .04em; }
+.lst-tap:active:not(:disabled) { transform: scale(.98); background: #e03131; }
+.lst-tap:disabled { opacity: .4; cursor: default; }
+.lst-list { flex: 1; min-height: 140px; max-height: 32vh; overflow-y: auto; border: 1px solid #2c2c36; border-radius: 10px; padding: 6px; background: #101014; position: relative; }
+.lst-row { display: flex; gap: 10px; padding: 4px 8px; border-radius: 6px; font-size: 14px; }
+.lst-line { cursor: pointer; }
+.lst-line:hover { background: #1c1c24; }
+.lst-section { color: #ff6b6b; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+.lst-time { font-variant-numeric: tabular-nums; color: #666; min-width: 66px; }
+.lst-done .lst-time { color: #51cf66; }
+.lst-cur { background: rgba(255, 77, 77, .18) !important; outline: 1px solid rgba(255, 77, 77, .6); }
+.lst-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.lst-count { font-size: 13px; color: #aaa; }
+.lst-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.lst-warn { font-size: 12px; color: #ffa94d; }

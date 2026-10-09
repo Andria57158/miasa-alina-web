@@ -1,0 +1,434 @@
+/* src/Admin/AdminHome.css */
+
+/* ---------- Base ---------- */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+.admin-home {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 100px 20px 100px;
+  box-sizing: border-box;
+}
+
+/* ---------- Header ---------- */
+.admin-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+  box-sizing: border-box;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-trigger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-trigger span {
+  width: 25px;
+  height: 3px;
+  background: #ff0000;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.profile-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ff0000;
+  object-fit: cover;
+}
+
+.typing {
+  color: #ff0000;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-right: 3px solid #ff0000;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #ff0000 }
+}
+
+/* ---------- Menu latéral ---------- */
+.side-menu {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+  background: #0a0a0a;
+  border: 1px solid #ff0000;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1001;
+}
+
+.menu-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+/* ---------- Modale profil ---------- */
+.profile-settings-modal {
+  position: absolute;
+  top: 70px;
+  left: 200px;
+  background: #0a0a0a;
+  border: 1px solid #ff0000;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------- Contenu principal ---------- */
+.admin-main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #ff0000;
+  margin-bottom: 30px;
+}
+
+/* ---------- Grille des stats ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid #333;
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  border-color: #ff0000;
+  transform: translateY(-5px);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stat-icon {
+  font-size: 1.8rem;
+  color: #ff0000;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.positive { color: #00ff00; }
+.negative { color: #ff0000; }
+
+/* ---------- Section détails (tableau) ---------- */
+.details-section {
+  background: rgba(10, 10, 10, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 30px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.details-title {
+  color: #ff0000;
+  margin-top: 0;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Wrapper pour permettre le scroll horizontal sur mobile */
+.details-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 15px;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.details-table th,
+.details-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+  white-space: nowrap;
+}
+
+.details-table th {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.details-table tbody tr:hover {
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.stat-label {
+  font-weight: 500;
+  color: #ddd;
+}
+
+.stat-detail {
+  color: #00ff00;
+  font-weight: 600;
+}
+
+.stat-bad {
+  color: #ff0000;
+  font-weight: 600;
+}
+
+.close-details {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close-details:hover {
+  background: #cc0000;
+}
+
+/* ---------- Footer ---------- */
+.admin-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 65px;
+  background: rgba(0, 0, 0, 0.95);
+  border-top: 1px solid #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15vw;
+  width: 100%;
+  max-width: 400px;
+}
+
+.foot-icon {
+  background: none;
+  border: none;
+  color: #ff0000;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.foot-icon:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.users-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #00ff00;
+  color: black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* ========================================= */
+/* RESPONSIVE                                */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  .admin-home {
+    padding: 90px 12px 90px;
+  }
+
+  .admin-header {
+    padding: 0 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .details-section {
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  .details-title {
+    font-size: 1.1rem;
+  }
+
+  .details-table th,
+  .details-table td {
+    padding: 8px 6px;
+    font-size: 0.85rem;
+  }
+
+  .close-details {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .footer-nav {
+    gap: 10vw;
+  }
+
+  .typing {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-header {
+    height: 60px;
+    padding: 0 10px;
+  }
+
+  .profile-header img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .profile-header span {
+    font-size: 0.9rem;
+  }
+
+  .typing {
+    font-size: 12px;
+  }
+
+  .dashboard-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+  }
+
+  .admin-footer {
+    height: 60px;
+  }
+
+  .footer-nav {
+    gap: 5vw;
+  }
+
+  .foot-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+  }
+}

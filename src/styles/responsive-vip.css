@@ -1,0 +1,117 @@
+/* src/styles/responsive-vip.css — correctifs responsive écrits pour VOTRE UserVip.css / AdminVip.css.
+   Importé EN DERNIER dans UserVip.jsx et AdminVip.jsx : ces règles complètent (sans casser) celles existantes.
+   Ce qui était cassé sur téléphone :
+     1) .vip-center-panel = height:100vh + overflow:hidden => Feed / Amis / Notifs / Events étaient COUPÉS (impossible de défiler)
+     2) la barre du haut (Feed, Amis, Messages…) avait des libellés de 6-8 px, illisibles
+     3) 100vh ne tient pas compte de la barre d'adresse mobile (iOS / Android) => 100dvh
+     4) publications : image rognée (object-fit: cover), bouton d'achat trop petit, énormes en largeur sur ordinateur */
+
+/* ---------- Base ---------- */
+html { -webkit-text-size-adjust: 100%; }
+html, body { max-width: 100%; overflow-x: hidden; }
+.admin-vip { max-width: 100vw; overflow-x: hidden; min-height: 100vh; min-height: 100dvh; }
+img, video, canvas { max-width: 100%; }
+.vip-center-panel p, .vip-center-panel span, .vip-center-panel h3, .vip-center-panel h4 { overflow-wrap: anywhere; }
+.vip-center-panel input, .vip-center-panel textarea, .vip-center-panel select { max-width: 100%; }
+
+/* ---------- Fenêtres : suivent la vraie hauteur visible ---------- */
+.modal-overlay { overflow-y: auto; padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); height: 100vh; height: 100dvh; }
+.modal-content { max-height: 90vh; max-height: 90dvh; }
+.modal-content.small { width: min(400px, 92vw); }
+.vp-icon-btn, .modal-close, .conv-action-btn { min-width: 40px; min-height: 40px; }
+
+/* ---------- Tablette (769 – 1024 px) ---------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .vip-layout { padding: 12px; gap: 12px; }
+  .vip-center-panel { min-width: 0; padding: 20px; }
+}
+
+/* ---------- Ordinateur : une colonne centrée (stories, titre et publications alignés), largeur lisible ---------- */
+/* width:100% est indispensable : sans lui, margin:auto dans un conteneur flex-colonne fait rétrécir l'élément à son contenu */
+@media (min-width: 769px) {
+  .admin-vip .events-container,
+  .admin-vip .stories-container,
+  .admin-vip .feed-header,
+  .admin-vip .events-mobile,
+  .admin-vip .notifications-list-mobile,
+  .admin-vip .friends-list-mobile { width: 100%; max-width: 720px; margin-left: auto; margin-right: auto; box-sizing: border-box; }
+  .admin-vip .events-container { align-items: stretch; }
+  .admin-vip .post-card { width: 100%; max-width: 100%; margin-left: 0; margin-right: 0; }
+}
+@media (min-width: 1280px) {
+  .admin-vip .events-container,
+  .admin-vip .stories-container,
+  .admin-vip .feed-header,
+  .admin-vip .events-mobile,
+  .admin-vip .notifications-list-mobile,
+  .admin-vip .friends-list-mobile { max-width: 760px; }
+}
+
+/* ---------- Publications (toutes tailles) ---------- */
+.post-card { width: 100%; max-width: 100%; }
+.post-card-media { object-fit: contain; max-height: 75vh; max-height: 75dvh; background: #000; }
+.post-card-bar { flex-wrap: wrap; }
+.post-card-cta { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.post-card .vp-action { min-height: 42px; }
+
+/* ---------- Téléphone & petite tablette (≤ 768 px) ---------- */
+@media (max-width: 768px) {
+  /* 1) Le panneau ne bloque plus le défilement : la page défile normalement, sous la barre du haut et au-dessus du footer fixe.
+        (Le panneau Messages garde ses propres règles, plus bas dans UserVip.css.) */
+  .admin-vip .vip-center-panel:not(.panel-messages) {
+    height: auto !important; max-height: none !important; overflow: visible !important;
+    min-height: calc(100vh - 128px); min-height: calc(100dvh - 128px);
+    padding: 12px 10px calc(var(--vip-footer-h, 60px) + 28px + env(safe-area-inset-bottom, 0px));
+  }
+  .admin-vip .events-container { margin-bottom: 24px; }
+
+  /* 2) Barre du haut : libellés lisibles, 5 boutons égaux, zone tactile correcte */
+  .mobile-top-nav { padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
+  .mobile-top-nav .search-bar-mobile input { min-width: 0; font-size: 16px; }
+  .mobile-top-nav .mobile-nav-buttons { padding: 0; }
+  .mobile-top-nav .mobile-nav-btn { flex: 1 1 0; min-width: 0; min-height: 44px; justify-content: center; position: relative; font-size: 17px; padding: 4px 2px; }
+  .mobile-top-nav .mobile-nav-btn span { font-size: 10px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-top-nav .mobile-nav-btn .notif-badge { position: absolute; top: 0; left: calc(50% + 4px); margin: 0; }
+
+  /* 3) Stories un peu plus compactes, défilement horizontal fluide */
+  .stories-container { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+
+  /* 4) Boutiques / factures */
+  .events-mobile, .friends-list-mobile, .notifications-list-mobile { padding-left: 0; padding-right: 0; }
+  .sp-card, .inv { max-width: 100%; }
+  .inv { padding: 12px; }
+  .inv-title { font-size: 19px; }
+  .inv-meta { grid-template-columns: 1fr; gap: 0; }
+  .inv-meta dt { margin-top: 6px; font-size: 12px; }
+  .inv-table { font-size: 13px; }
+  .sp-actions > button { flex: 1 1 100%; min-height: 42px; }
+  .sp-row { align-items: flex-start; }
+
+  /* 5) Publication ouverte : bouton Panier / Billet pleine largeur */
+  .pv-buy { flex-direction: column; align-items: stretch; }
+  .pv-cta { width: 100%; justify-content: center; min-height: 46px; }
+}
+
+/* ---------- Petits téléphones (≤ 480 px) ---------- */
+@media (max-width: 480px) {
+  .post-card { border-radius: 8px; margin-bottom: 12px; }
+  .post-card-head { padding: 10px 12px 6px; }
+  .post-card-name { font-size: 14px; }
+  .post-card-text, .post-card-meta { font-size: 14px; }
+  .post-card-bar { gap: 8px; padding: 10px 12px; }
+  .post-card-cta { flex: 1 1 100%; padding: 12px; font-size: 16px; }
+  .post-card-barlink { flex: 1 1 100%; text-align: left; }
+  .post-card .vp-action { font-size: 14px; padding: 10px 4px; gap: 6px; }
+  .notif-toast { font-size: 13px; }
+}
+@media (max-width: 360px) {
+  .story-card { width: 88px; height: 136px; }
+  .mobile-top-nav .mobile-nav-btn span { font-size: 9px; }
+  .post-card .vp-action i { display: none; }
+}
+
+/* ---------- Téléphone en paysage ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .modal-content { max-height: 100dvh; }
+  .post-card-media { max-height: 60dvh; }
+}

@@ -1,0 +1,411 @@
+/* src/Visiteur/Login.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)), url('/src/assets/Images/men_your_brave.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #000;
+}
+
+/* --- Conteneur flex pour centrer la boîte de connexion --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.login-box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: clamp(40px, 10vw, 60px) clamp(30px, 8vw, 50px);
+    border-radius: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.2);
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: red;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-size: clamp(16px, 4vw, 20px);
+    letter-spacing: 1px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.password-group {
+    position: relative;
+    width: 100%;
+}
+
+.password-group input {
+    padding-right: 45px !important;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.toggle-password:hover {
+    color: #ff0000;
+}
+
+.input-group input {
+    width: 100%;
+    padding: clamp(12px, 3.5vw, 16px);
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+    font-size: clamp(14px, 3vw, 16px);
+}
+
+.input-group input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.login-btn {
+    width: 100%;
+    padding: clamp(12px, 3.5vw, 16px);
+    background: transparent;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+    font-size: clamp(14px, 3.5vw, 18px);
+    text-transform: uppercase;
+}
+
+.login-btn:hover {
+    background: #ff0000;
+    color: black;
+    box-shadow: 0 0 20px #ff0000;
+}
+
+.register-btn {
+    width: 100%;
+    padding: clamp(12px, 3.5vw, 16px);
+    background: rgba(255, 0, 0, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+    font-size: clamp(14px, 3.5vw, 18px);
+    text-transform: uppercase;
+}
+
+.register-btn:hover {
+    background: rgba(255, 0, 0, 0.2);
+    border-color: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.footer-links {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: clamp(12px, 3vw, 14px);
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff0000;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: clamp(12px, 3vw, 14px);
+    margin-top: 10px;
+    padding: 8px;
+    background: rgba(255, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* --- Séparateur "OU" / "RETOUR" --- */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #666;
+    margin: 20px 0;
+}
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #333;
+}
+.separator span {
+    padding: 0 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* ============================================ */
+/* --- STYLES POUR LE FORMULAIRE D'INSCRIPTION --- */
+/* ============================================ */
+
+.register-form {
+    margin-top: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.register-form fieldset {
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px 18px 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.register-form legend {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #ff0000;
+    padding: 0 8px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    border: 1px solid #333;
+    padding: 4px 12px;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.form-row .input-group {
+    flex: 1;
+    min-width: 120px;
+    margin-bottom: 0;
+}
+
+/* Adaptation des select */
+.register-form .input-group select {
+    width: 100%;
+    padding: clamp(12px, 3.5vw, 16px);
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+    font-size: clamp(14px, 3vw, 16px);
+    appearance: auto;
+}
+
+.register-form .input-group select:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.register-form .input-group select option {
+    background: #111;
+    color: white;
+}
+
+/* Champ âge en lecture seule */
+.register-form .input-group input[readonly] {
+    background-color: #1a1a1a;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Input date */
+.register-form .input-group input[type="date"] {
+    color-scheme: dark;
+}
+
+/* --- Champ de téléchargement de fichier (photo) --- */
+.file-group {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 10px 16px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.file-label:hover {
+    border-color: #ff0000;
+}
+
+.file-label-text {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+.file-label input[type="file"] {
+    display: none;
+}
+
+.file-name {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    border-left: 2px solid #ff0000;
+}
+
+/* --- Aperçu de la photo --- */
+.photo-preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.photo-preview img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+/* --- Indicateur d'étapes (inscription) --- */
+.steps-indicator {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.step-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #666;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: calc(50% + 18px);
+    width: calc(100% - 36px);
+    height: 2px;
+    background: #333;
+}
+
+.step-item.done:not(:last-child)::after {
+    background: #ff0000;
+}
+
+.step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: #111;
+    transition: 0.3s;
+}
+
+.step-item.active { color: #fff; }
+.step-item.active .step-dot {
+    border-color: #ff0000;
+    color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+.step-item.done .step-dot {
+    border-color: #ff0000;
+    background: #ff0000;
+    color: #000;
+}
+
+/* --- Boutons Précédent / Suivant --- */
+.step-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.step-buttons .login-btn,
+.step-buttons .register-btn {
+    flex: 1;
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .step-title { display: none; }
+    .step-buttons { flex-direction: column-reverse; gap: 0; }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .form-row .input-group {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .login-box {
+        padding: 30px 20px;
+    }
+    .register-form fieldset {
+        padding: 12px;
+    }
+}

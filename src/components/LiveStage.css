@@ -1,0 +1,35 @@
+/* src/components/LiveStage.css — habillage Facebook Live, adaptatif (mobile / tablette / PC) */
+.live-stage { position: relative; width: 100%; aspect-ratio: 16 / 9; max-height: 75vh; background: #000; overflow: hidden; }
+.live-base { position: absolute; inset: 0; }
+.live-base > * { width: 100%; height: 100%; }
+.live-top { position: absolute; top: 10px; left: 10px; display: flex; flex-wrap: wrap; gap: 6px; z-index: 32; }
+.live-tag { background: #E22134; color: #fff; font-weight: 700; font-size: 13px; padding: 4px 9px; border-radius: 4px; letter-spacing: 0.5px; }
+.live-views { background: rgba(0,0,0,0.55); color: #fff; font-size: 13px; padding: 4px 9px; border-radius: 4px; display: flex; align-items: center; gap: 6px; }
+.live-pill { background: rgba(0,0,0,0.65); color: #ffd479; font-size: 12px; padding: 4px 9px; border-radius: 12px; display: flex; align-items: center; gap: 6px; }
+.live-host { position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; z-index: 32; }
+.live-host button { background: rgba(0,0,0,0.6); color: #fff; border: none; min-width: 40px; height: 40px; border-radius: 20px; cursor: pointer; font-size: 15px; padding: 0 12px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.live-host button.off { background: #6c757d; }
+.live-host button.end { background: #E22134; font-weight: 700; font-size: 13px; }
+.live-floaters { position: absolute; right: 0; bottom: 56px; width: 120px; height: 70%; pointer-events: none; z-index: 28; }
+.live-floater { position: absolute; bottom: 0; width: 38px; height: 38px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 3px 10px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.9); animation: live-rise 3s ease-out forwards; }
+@keyframes live-rise {
+  0%   { transform: translate(0, 0) scale(0.3); opacity: 0; }
+  8%   { transform: translate(0, -10px) scale(1.15); opacity: 1; }
+  50%  { transform: translate(var(--sway), -150px) scale(1); opacity: 1; }
+  100% { transform: translate(calc(var(--sway) * -1), -300px) scale(0.9); opacity: 0; }
+}
+.live-react:active { transform: scale(1.25); }
+.live-chat { position: absolute; left: 10px; bottom: 60px; width: min(78%, 380px); display: flex; flex-direction: column; gap: 8px; z-index: 30; pointer-events: none; }
+.live-msg { display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.62); color: #fff; padding: 7px 12px 7px 8px; border-radius: 18px; font-size: 15px; line-height: 1.25; animation: live-in 0.25s ease-out; text-shadow: 0 1px 2px rgba(0,0,0,0.6); }
+.live-msg img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.live-msg b { display: block; font-size: 13px; color: #ffd479; }
+.live-msg span { word-break: break-word; }
+@keyframes live-in { from { transform: translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
+.live-bottom { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: linear-gradient(transparent, rgba(0,0,0,0.75)); z-index: 31; }
+.live-bottom input { flex: 1; min-width: 0; height: 40px; border-radius: 20px; border: none; background: rgba(255,255,255,0.18); color: #fff; padding: 0 14px; font-size: 16px; outline: none; }
+.live-bottom input::placeholder { color: #ddd; }
+.live-send, .live-react { background: rgba(255,255,255,0.15); border: none; color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 17px; flex-shrink: 0; }
+.live-send { background: #E22134; }
+@media (max-width: 700px) and (orientation: portrait) { .live-stage { aspect-ratio: 3 / 4; max-height: 70vh; } .live-react:nth-of-type(3) { display: none; } }
+@media (max-height: 500px) and (orientation: landscape) { .live-stage { max-height: 100vh; } }
+.live-bottom button:disabled, .live-bottom input:disabled { opacity: 0.5; cursor: not-allowed; }

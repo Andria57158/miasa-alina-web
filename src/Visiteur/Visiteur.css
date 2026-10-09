@@ -1,0 +1,637 @@
+/* src/Visiteur/Visiteur.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+.visitor-page {
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.visitor-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+    z-index: 1000;
+    border-bottom: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: #ff0000;
+    letter-spacing: 2px;
+    position: absolute;
+    left: 20px;
+}
+
+.welcome-msg {
+    text-align: center;
+}
+
+.typing {
+    color: #ff0000;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    border-right: 3px solid #ff0000;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 auto;
+    animation: typing 4s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+    font-size: 14px;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ff0000 }
+}
+
+/* --- NOUVEAU : Section principale qui prend tout l'espace restant et centre son contenu --- */
+.hero-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 40px; /* Espace pour le header fixe + marge */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Statistiques */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0 40px 0;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    border: 1px solid #333;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 15px;
+    flex: 1;
+    min-width: 120px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bio-container {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 1200px;
+    width: 100%;
+    border: 1px solid #333;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin: 0 auto; /* Sécurité pour centrage horizontal */
+}
+
+.bio-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.album-img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.text-area {
+    flex: 1;
+}
+
+.bio-text {
+    color: #ddd;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.more-text {
+    display: inline;
+}
+
+.read-btn {
+    background: none;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 3px;
+    font-size: 14px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.read-btn:hover {
+    background: #ff0000;
+    color: black;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.divider {
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    margin: 40px 0;
+}
+
+/* Équipe */
+.team-section {
+    margin: 50px 0;
+    width: 100%;
+}
+
+.team-title {
+    text-align: center;
+    color: #ff0000;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.team-member {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #333;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+}
+
+.member-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff0000;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.member-role {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.member-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+}
+
+.member-bio {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+.member-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ff0000, transparent);
+    margin: 15px 0;
+}
+
+/* Vidéo */
+.video-section {
+    margin: 50px 0;
+    width: 100%;
+}
+
+.video-title {
+    text-align: center;
+    color: #ff0000;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.video-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 0, 0, 0.5);
+}
+
+.bio-video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-description {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 35px;
+    border: 1px solid #333;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.video-description h3 {
+    color: #ff0000;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.video-description p {
+    color: #ccc;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.video-btn {
+    background: rgba(255, 0, 0, 0.1);
+    color: white;
+    border: 1px solid #ff0000;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+}
+
+.video-btn:hover {
+    background: rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+/* Bouton accès */
+.access-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #ff0000;
+    padding: 15px 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: block;
+    margin: 40px auto 0;
+    font-size: 18px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+}
+
+.access-btn:hover {
+    background-color: #ff0000;
+    color: black;
+    box-shadow: 0 0 20px #ff0000;
+}
+
+/* ============================================================
+   RESPONSIVE
+   - Les 3 chiffres (Membres / Chansons / Visiteurs) restent toujours
+     en haut du contenu, sur UNE seule ligne, alignés sur le même axe.
+   - Sur mobile, tout le reste occupe toute la largeur de l'écran
+     (plus de marges autour du cadre) et remplit la hauteur.
+   ============================================================ */
+
+img, video { max-width: 100%; }
+
+/* ---------- Grand écran ---------- */
+@media (min-width: 1024px) {
+    .video-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .video-container {
+        flex: 1.2;
+    }
+    .video-description {
+        flex: 1;
+    }
+}
+
+/* ---------- Tablette (≤ 1023px) ---------- */
+@media (max-width: 1023px) {
+    .hero-section {
+        padding: 90px 16px 24px;
+    }
+    .bio-container {
+        padding: 28px;
+    }
+    .bio-content {
+        gap: 30px;
+    }
+    .album-img {
+        width: 240px;
+    }
+    .stats-container {
+        flex-wrap: nowrap;          /* les chiffres ne passent jamais à la ligne */
+        gap: 10px;
+    }
+    .stat-box {
+        min-width: 0;
+    }
+}
+
+/* ---------- Mobile (≤ 768px) ---------- */
+@media (max-width: 768px) {
+    .visitor-page {
+        min-height: 100vh;
+        min-height: 100dvh;
+        background-attachment: scroll;   /* "fixed" est instable sur mobile */
+    }
+
+    /* En-tête : logo au-dessus, message dessous (plus de chevauchement) */
+    .visitor-header {
+        height: auto;
+        min-height: 64px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 12px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 70%, transparent);
+    }
+    .logo {
+        position: static;
+        font-size: 20px;
+    }
+    .welcome-msg {
+        max-width: 100%;
+    }
+    .typing {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        max-width: 100%;
+    }
+
+    /* Le cadre remplit tout l'écran : pleine largeur et pleine hauteur */
+    .hero-section {
+        padding: 76px 0 0;
+        align-items: stretch;
+    }
+    .bio-container {
+        padding: 16px 14px 28px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        max-width: none;
+        box-shadow: none;
+    }
+
+    /* Chiffres : toujours en haut, sur une seule ligne bien alignée */
+    .stats-container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 6px;
+        margin: 0 0 22px;
+        padding: 12px 6px;
+    }
+    .stat-box {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 6px 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .stat-number {
+        font-size: clamp(1.5rem, 8vw, 2.1rem);
+        line-height: 1.1;
+        margin-bottom: 4px;
+    }
+    .stat-label {
+        font-size: 0.68rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+    }
+
+    /* Biographie */
+    .bio-content {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+    .album-img {
+        width: 100%;
+    }
+    .text-area {
+        width: 100%;
+    }
+    .text-area h1 {
+        font-size: 1.5rem;
+        margin: 0 0 12px;
+    }
+    .bio-text {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        text-align: left;
+    }
+    .read-btn {
+        width: 100%;
+        padding: 12px 16px;
+    }
+    .divider {
+        margin: 24px 0;
+    }
+
+    /* Équipe */
+    .team-section {
+        margin: 30px 0;
+    }
+    .team-title,
+    .video-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    .team-container {
+        gap: 16px;
+        margin-top: 0;
+    }
+    .team-member {
+        max-width: none;
+        padding: 20px 16px;
+    }
+    .member-image {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 14px;
+    }
+    .member-role {
+        font-size: 1rem;
+    }
+    .member-name {
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+    }
+    .member-bio {
+        font-size: 0.92rem;
+        text-align: left;
+    }
+
+    /* Vidéo */
+    .video-section {
+        margin: 30px 0;
+    }
+    .video-content {
+        gap: 20px;
+    }
+    .video-container {
+        max-width: none;
+        border-radius: 10px;
+    }
+    .video-description {
+        padding: 18px 16px;
+        border-radius: 10px;
+    }
+    .video-description h3 {
+        font-size: 1.2rem;
+        margin-bottom: 14px;
+    }
+    .video-description p {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        text-align: left;
+    }
+    .video-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .video-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    /* Bouton d'accès : pleine largeur */
+    .access-btn {
+        width: 100%;
+        margin-top: 28px;
+        padding: 14px 16px;
+        font-size: 16px;
+    }
+}
+
+/* ---------- Petit mobile (≤ 480px) ---------- */
+@media (max-width: 480px) {
+    .bio-container {
+        padding: 14px 10px 24px;
+    }
+    .typing {
+        font-size: 10px;
+    }
+    .stat-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.3px;
+    }
+    .member-image {
+        width: 96px;
+        height: 96px;
+    }
+    .team-member,
+    .video-description {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/* ---------- Très petit écran (≤ 360px) ---------- */
+@media (max-width: 360px) {
+    .stats-container {
+        gap: 4px;
+        padding: 10px 4px;
+    }
+    .stat-label {
+        font-size: 0.58rem;
+    }
+    .video-controls {
+        grid-template-columns: 1fr;   /* 1 bouton par ligne */
+    }
+}

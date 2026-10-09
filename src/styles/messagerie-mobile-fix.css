@@ -1,0 +1,262 @@
+/* src/styles/messagerie-mobile-fix.css
+   À importer EN DERNIER (après responsive-vip.css) dans UserVip.jsx et AdminVip.jsx.
+   Remplace le bloc « CORRECTIF MESSAGERIE MOBILE » de UserVip.css (tu peux le supprimer).
+
+   Ce qui était cassé (captures) :
+   1. le panneau commençait à 128px alors que la barre du haut se termine vers 163px
+      => en-tête « KILO » et champ « Rechercher un contact » coupés ;
+   2. panel-messages avait « background: transparent !important » => l'affiche de fond
+      (MEN ARE BRAVE / Yassal) traversait toute la messagerie ;
+   3. la liste des contacts n'avait pas sa propre zone de défilement ;
+   4. les contacts étaient centrés/décalés au lieu d'être alignés à gauche. */
+
+:root { --vip-footer-h: 60px; --vip-top-offset: 164px; }   /* valeurs de secours, remplacées par le hook */
+
+.friends-strip { display: none; }
+
+/* ============================================================
+   CONTACTS — ordinateur ET mobile
+   Barre de recherche pleine largeur + carte noire par contact
+   ============================================================ */
+.admin-vip .panel-messages .contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.admin-vip .panel-messages .messages-contacts .contacts-header {
+  flex: 0 0 auto;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;     /* la barre occupe toute la largeur */
+  gap: 10px;
+  width: 100% !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+.admin-vip .panel-messages .messages-contacts .contacts-header h4 {
+  margin: 0 !important;
+  text-align: left;
+}
+.admin-vip .panel-messages .messages-contacts .search-contacts {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 44px !important;
+  margin: 0 !important;
+  padding: 0 16px !important;
+  font-size: 16px !important;          /* 16px : évite le zoom automatique sur iPhone */
+  color: #fff !important;
+  background: #000 !important;
+  border: 1px solid #e22134 !important;
+  border-radius: 30px !important;
+}
+.admin-vip .panel-messages .messages-contacts .search-contacts::placeholder { color: #9a9a9a; }
+
+/* Chaque contact : carte noire pour bien voir le profil et le texte */
+.admin-vip .panel-messages .contact-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px !important;
+  text-align: left;
+  background: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px !important;
+}
+.admin-vip .panel-messages .contact-item img {
+  width: 46px; height: 46px; flex: 0 0 46px;
+  border-radius: 50%; object-fit: cover;
+  border: 2px solid #e22134;
+  background: #1a1a1a;
+}
+.admin-vip .panel-messages .contact-item.active {
+  background: #000 !important;
+  border-color: #e22134;
+  box-shadow: inset 3px 0 0 #e22134;
+}
+.admin-vip .panel-messages .contact-info { flex: 1 1 auto; min-width: 0; text-align: left; }
+.admin-vip .panel-messages .contact-top,
+.admin-vip .panel-messages .contact-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0;
+}
+.admin-vip .panel-messages .contact-bottom { margin-top: 2px; }
+.admin-vip .panel-messages .contact-name {
+  flex: 1 1 auto; min-width: 0; display: block; text-align: left;
+  color: #fff; font-size: 15px; font-weight: 600; text-shadow: none;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.admin-vip .panel-messages .contact-time { flex: 0 0 auto; font-size: 11px; color: #8d8d8d; }
+.admin-vip .panel-messages .contact-last-msg {
+  flex: 1 1 auto; min-width: 0; display: block; text-align: left;
+  color: #b5b5b5; font-size: 12.5px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.admin-vip .panel-messages .contact-last-msg .you { color: #8d8d8d; }
+
+/* Contact avec message non lu : texte bien visible + pastille rouge */
+.admin-vip .panel-messages .contact-item.has-unread { border-color: rgba(226, 33, 52, 0.55); }
+.admin-vip .panel-messages .contact-item.has-unread .contact-last-msg { color: #fff; font-weight: 600; }
+.admin-vip .panel-messages .contact-item.has-unread .contact-time { color: #e22134; }
+.admin-vip .panel-messages .contact-unread {
+  flex: 0 0 auto; min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box;
+  border-radius: 10px; background: #e22134; color: #fff;
+  font-size: 11px; font-weight: 700; line-height: 20px; text-align: center;
+}
+
+
+@media (max-width: 768px) {
+
+  /* ---------- Panneau : démarre juste sous la barre du haut ---------- */
+  .admin-vip .vip-layout { flex-wrap: nowrap; }
+
+  .admin-vip .vip-center-panel.panel-messages {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    /* .admin-vip a déjà 120px de padding-top : on ajoute seulement ce qui manque */
+    margin: max(0px, calc(var(--vip-top-offset) - 120px)) 0 0 0 !important;
+    padding: 0 !important;
+    height: calc(100vh - var(--vip-top-offset) - var(--vip-footer-h)) !important;
+    height: calc(100dvh - var(--vip-top-offset) - var(--vip-footer-h)) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: rgba(10, 10, 10, 0.98) !important;   /* fond plein : plus d'affiche qui traverse */
+  }
+
+  .admin-vip .panel-messages .messages-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 0 !important;
+    gap: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* ---------- Liste des contacts ---------- */
+  .admin-vip .panel-messages .messages-contacts {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+  .admin-vip .panel-messages .contacts-list {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ---------- Conversation ---------- */
+  .admin-vip .panel-messages .messages-conversation {
+    display: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+  .admin-vip .panel-messages .messages-layout.show-conversation .messages-contacts { display: none !important; }
+  .admin-vip .panel-messages .messages-layout.show-conversation .messages-conversation {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .admin-vip .panel-messages .conversation-view {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .admin-vip .panel-messages .conv-view-header {
+    position: relative !important;
+    top: auto !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 10px 14px !important;
+    min-height: 64px !important;
+    box-sizing: border-box !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    border-radius: 0 !important;
+  }
+
+  .admin-vip .panel-messages .messages-container {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .admin-vip .panel-messages .message-input-area {
+    flex: 0 0 auto !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    align-items: center;
+  }
+  .admin-vip .panel-messages .message-input-area .msg-input { flex: 1 1 auto; min-width: 0; font-size: 16px; }
+
+  /* ---------- Bande « personnes ajoutées » (entre la saisie et le footer) ---------- */
+  .admin-vip .panel-messages .friends-strip {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: rgba(10, 10, 10, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .friends-strip::-webkit-scrollbar { display: none; }
+  .friends-strip-item {
+    flex: 0 0 auto; width: 56px;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    padding: 0; background: none; border: 0; color: #bbb; font-size: 10px; cursor: pointer;
+  }
+  .friends-strip-item img {
+    width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+    border: 2px solid transparent; box-sizing: border-box;
+  }
+  .friends-strip-item span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .friends-strip-item.active { color: #fff; }
+  .friends-strip-item.active img { border-color: #e22134; }
+}

@@ -1,0 +1,127 @@
+/* src/Admin/AlbumFormModal.css */
+.afm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.afm-modal {
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.afm-modal-small { max-width: 480px; }
+
+.afm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid #2a2a2a;
+}
+.afm-header h2 { margin: 0; font-size: 18px; color: #fff; display: flex; gap: 10px; align-items: center; }
+.afm-close { background: none; border: none; color: #aaa; font-size: 18px; cursor: pointer; }
+.afm-close:hover { color: #fff; }
+
+.afm-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 20px 0;
+}
+.afm-step-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #2a2a2a; color: #888;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600;
+}
+.afm-step-dot.active { background: #d61f69; color: #fff; }
+.afm-step-line { width: 40px; height: 2px; background: #2a2a2a; }
+
+.afm-body { padding: 20px; overflow-y: auto; flex: 1; }
+.afm-panel-title { color: #ddd; font-size: 14px; margin: 0 0 16px; }
+
+.afm-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; color: #ccc; font-size: 13px; }
+.afm-field input[type="text"],
+.afm-field input[type="date"],
+.afm-field input[type="number"],
+.afm-field textarea {
+  background: #0f0f0f;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+}
+.afm-field textarea { resize: vertical; }
+.afm-field input:focus, .afm-field textarea:focus { border-color: #d61f69; }
+
+.afm-cover-upload {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  border: 2px dashed #333; border-radius: 12px; padding: 20px;
+  cursor: pointer; margin-bottom: 16px; color: #888;
+}
+.afm-cover-upload img { width: 120px; height: 120px; object-fit: cover; border-radius: 10px; }
+.afm-cover-upload i { font-size: 32px; }
+.afm-cover-upload span { font-size: 13px; color: #aaa; }
+
+.afm-tracks-panel { display: flex; flex-direction: column; gap: 16px; }
+.afm-track-card { background: #0f0f0f; border: 1px solid #262626; border-radius: 10px; padding: 14px; }
+.afm-track-header { color: #d61f69; font-weight: 600; font-size: 13px; margin-bottom: 10px; }
+
+.afm-file-row { display: flex; align-items: center; gap: 10px; }
+.afm-file-btn {
+  background: #2a2a2a; color: #fff; border-radius: 8px; padding: 8px 12px;
+  font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.afm-file-btn:hover { background: #d61f69; }
+.afm-file-name { color: #888; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.afm-audio-preview { width: 100%; height: 36px; border-radius: 8px; }
+
+.afm-error {
+  background: rgba(214, 31, 105, 0.12); color: #ff6b9d; border: 1px solid rgba(214, 31, 105, 0.3);
+  border-radius: 8px; padding: 10px 12px; font-size: 13px; margin-top: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.afm-footer {
+  display: flex; align-items: center; padding: 16px 20px; border-top: 1px solid #2a2a2a; gap: 10px;
+}
+.afm-footer-spacer { flex: 1; }
+.afm-btn { border: none; border-radius: 8px; padding: 10px 18px; font-size: 14px; cursor: pointer; font-weight: 600; }
+.afm-btn-primary { background: #d61f69; color: #fff; }
+.afm-btn-primary:hover { background: #b81a5a; }
+.afm-btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.afm-btn-secondary { background: #2a2a2a; color: #ccc; }
+.afm-btn-secondary:hover { background: #333; }
+
+/* Boutons édition / suppression sur les cartes album et morceau (admin uniquement) */
+.admin-edit-btn, .admin-delete-btn {
+  background: rgba(0,0,0,0.55);
+  border: none; color: #fff; width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px;
+}
+.admin-edit-btn:hover { background: #d61f69; }
+.admin-delete-btn:hover { background: #b81a1a; }
+.album-admin-actions {
+  position: absolute; top: 8px; right: 8px; display: flex; gap: 6px; z-index: 5;
+}
+.song-admin-actions { display: flex; gap: 6px; margin-left: 8px; }

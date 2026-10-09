@@ -1,0 +1,52 @@
+/* src/components/AnimatedLyrics.css */
+.al-wrap { display: flex; flex-direction: column; height: 100%; min-height: 320px; }
+.al-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 4px 8px; }
+.al-title { font-weight: 700; font-size: 14px; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.al-pdf-btn {
+  border: 1px solid rgba(255, 80, 80, .55); background: rgba(255, 60, 60, .12); color: #ff8a8a;
+  border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 700; cursor: pointer; transition: .2s;
+}
+.al-pdf-btn:hover:not(:disabled) { background: rgba(255, 60, 60, .28); color: #fff; }
+.al-pdf-btn:disabled { opacity: .6; cursor: default; }
+.al-msg { color: #ffb3b3; font-size: 12px; padding: 0 4px 6px; }
+
+.al-box {
+  position: relative; flex: 1; overflow-y: auto; max-height: 65vh; padding: 0 6px;
+  scrollbar-width: none; text-align: center;
+  -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent);
+          mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent);
+}
+.al-box::-webkit-scrollbar { display: none; }
+.al-pad { height: 30vh; }
+.al-gap { height: 18px; }
+
+.al-line {
+  padding: 6px 4px; font-size: clamp(17px, 2.1vw, 22px); line-height: 1.35; font-weight: 700;
+  cursor: pointer; user-select: none;
+  transition: opacity .45s ease, transform .45s ease, filter .45s ease, color .45s ease;
+  transform-origin: center;
+}
+.al-future { opacity: .32; filter: blur(.4px); }
+.al-past   { opacity: .5; }
+.al-idle .al-future, .al-idle .al-past { opacity: .85; filter: none; }
+.al-section { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #ff6b6b; opacity: .8; cursor: default; margin-top: 10px; }
+
+/* Ligne chantée : agrandie + remplissage progressif façon karaoké */
+.al-active { opacity: 1; transform: scale(1.07); }
+.al-active .al-text {
+  background-image: linear-gradient(90deg, #ff4d4d, #ff4d4d);
+  background-repeat: no-repeat; background-size: var(--al-p, 0%) 100%;
+  background-color: #fff;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  transition: background-size .35s linear;
+  text-shadow: none; filter: drop-shadow(0 0 10px rgba(255, 77, 77, .35));
+}
+/* fallback : le fond blanc sous le dégradé rouge donne l'effet "déjà chanté" */
+.al-line:not(.al-active) .al-text { color: #fff; }
+.al-hint { text-align: center; font-size: 11px; opacity: .45; padding-top: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .al-line, .al-active .al-text { transition: none; }
+  .al-active { transform: none; }
+}
